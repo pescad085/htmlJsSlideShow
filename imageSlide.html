@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Tasking in JavaScript</title>
+</head>
+<body>
+   <h1>Image Slider</h1>
+   <img id="imageSlider" src="donut1.jpg" width="300">
+   <button id="nextImg"> Next Image</button>
+   <button id="prev">Previews Image</button>
+
+    <script>
+        const imageSlider = document.getElementById("imageSlider");
+        const nextImage = document.getElementById("nextImg");
+        const prevImg = document.getElementById("prev");
+
+      nextImage.addEventListener("click", changeImg);
+       prevImg.addEventListener("click", backImg);
+            clickCounts = 0;
+        const images = ["donut1.jpg", "donut2.jpg", "donut3.jpg", "donut4.jpg"];
+               function changeImg () {
+                clickCounts++;
+                if(clickCounts >= images.length) {
+                       clickCounts = 0;
+
+                }
+                imageSlider.src = images[clickCounts];
+               }
+                   function backImg() {
+                    clickCounts-- 
+                    if(clickCounts < 0 ) {
+                            clickCounts = images.length - 1;
+                    }
+                    imageSlider.src = images[clickCounts];
+                   }
+  
+    </script>
+</body>
+</html>
